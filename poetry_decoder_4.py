@@ -1,11 +1,11 @@
-from poetry import poem1, poem2
+from poetry import poem4
 from collections import OrderedDict
 
-def decode_numbers(poem):
+def decode_last_letter(poem):
     ordered = {}
     keys = []
     for subdivision in poem:
-        subdivision_key = [int(k) for k in list(subdivision) if k.isdigit()]
+        subdivision_key = [subdivision[-1].lower()]
         keys.extend(subdivision_key)
 
     count = 0
@@ -33,15 +33,6 @@ def decode_first_letter(poem):
     for key in ordered:
         print(ordered[key])
 
-def decode_cesar(poem):
-    pass
-
-def decode_last_letter(poem):
-    pass
-
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Poema 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-decode_numbers(poem1)
-print("")
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Poema 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-decode_first_letter(poem2)
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Poema 4 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+decode_last_letter(poem4)
 print("")

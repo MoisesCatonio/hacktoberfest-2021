@@ -1,4 +1,4 @@
-from poetry import poem1, poem2
+from poetry import poem3
 from collections import OrderedDict
 
 def decode_numbers(poem):
