@@ -1,47 +1,27 @@
 from poetry import poem3
 from collections import OrderedDict
 
-def decode_numbers(poem):
-    ordered = {}
-    keys = []
-    for subdivision in poem:
-        subdivision_key = [int(k) for k in list(subdivision) if k.isdigit()]
-        keys.extend(subdivision_key)
+alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-    count = 0
-    for key in keys:
-        ordered[key] = poem[count]
-        count += 1 
+def decode_caesar(poem):
+    for i in range(len(poem)):
+        poem[i] = poem[i].lower()
+
+    result = []
+    for subtext in poem:
+        decoded_string = ""
+        for char in list(subtext):
+            if char != ' ':
+                decoded_string = decoded_string + alphabet[alphabet.index(char) - 13]
+            else:
+                decoded_string = decoded_string + " "
+        result.append(decoded_string)
     
-    ordered = OrderedDict(sorted(ordered.items()))
-    for key in ordered:
-        print(ordered[key])
-    
-def decode_first_letter(poem):
-    ordered = {}
-    keys = []
-    for subdivision in poem:
-        subdivision_key = [subdivision[0].lower()]
-        keys.extend(subdivision_key)
+    for verse in result:
+        print(verse)
 
-    count = 0
-    for key in keys:
-        ordered[key] = poem[count]
-        count += 1 
-    
-    ordered = OrderedDict(sorted(ordered.items()))
-    for key in ordered:
-        print(ordered[key])
-
-def decode_cesar(poem):
-    pass
-
-def decode_last_letter(poem):
-    pass
-
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Poema 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-decode_numbers(poem1)
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Poema 3 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+decode_caesar(poem3)
 print("")
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Poema 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-decode_first_letter(poem2)
-print("")
+
+# print(chr(ord('a') + 1))
